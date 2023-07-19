@@ -5,13 +5,14 @@ const Question = ({ question }) => {
   const { title, info } = question;
   const [isShow, setIsShow] = useState(false);
   return (
-    <article>
-      <h2>{title}</h2>
-      {isShow ? <div>{info}</div> : <p>show content</p>}
-
-      <button className="btn" onClick={() => setIsShow(!isShow)}>
-        {isShow ? "hide" : "show"}
-      </button>
+    <article className="question">
+      <header>
+        <h4>{title}</h4>
+        <button className="btn" onClick={() => setIsShow(!isShow)}>
+          {isShow ? <AiOutlineMinus /> : <AiOutlinePlus />}
+        </button>
+      </header>
+      {isShow && <p>{info}</p>}
     </article>
   );
 };
